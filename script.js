@@ -7,13 +7,13 @@ async function getWeather(city) {
     let response = await fetch(apiURL + city + `&appid=${apiKey}&units=metric`);
     var data = await response.json();
     console.log(data);
-    if(data.name!=city) {
-        document.querySelector(".city").innerHTML = "Not available";
-        document.querySelector(".temperature").innerHTML = "not available";
-        document.querySelector(".humidity").innerHTML = "Humidity: " + NaN;
-        document.querySelector(".wind-speed").innerHTML = "Wind Speed: " + NaN;
-        return;
-    }
+    // if(data.name!=city) {
+    //     document.querySelector(".city").innerHTML = "Not available";
+    //     document.querySelector(".temperature").innerHTML = "not available";
+    //     document.querySelector(".humidity").innerHTML = "Humidity: " + NaN;
+    //     document.querySelector(".wind-speed").innerHTML = "Wind Speed: " + NaN;
+    //     return;
+    // }
     document.querySelector(".city").innerHTML = data.name;
     document.querySelector(".temperature").innerHTML = Math.round(data.main.temp) + "°C";
     document.querySelector(".humidity").innerHTML = "Humidity: " + data.main.humidity + "%";
